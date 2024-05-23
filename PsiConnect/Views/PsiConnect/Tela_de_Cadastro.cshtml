@@ -1,0 +1,115 @@
+﻿@model Usuario
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="~/css/Tela_Cad.css" asp-append-version="true">
+</head>
+<body>
+    <div class="container">
+        <div class="form-img">
+            <img src="~/imagens/Login.gif" alt="Imagem animada">
+        </div>
+        <div class="form">
+            <form asp-controller="PsiConnect" asp-action="Tela_de_Cadastro" method="post">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="#">Psicólogo</a></button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Primeiro nome</label>
+                        <input asp-for="Primeiro_nome_u" id="firstname" type="text" placeholder="Digite seu primeiro nome" required>
+                        <span asp-validation-for="Primeiro_nome_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="lastname">Sobrenome</label>
+                        <input asp-for="Sobrenome_u" id="lastname" type="text" placeholder="Digite seu sobrenome" required>
+                        <span asp-validation-for="Sobrenome_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="CPF">CPF</label>
+                        <input asp-for="Cpf_u" id="CPF" type="text" placeholder="___-___-___-__" required>
+                        <span asp-validation-for="Cpf_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input asp-for="Email_u" id="email" type="email" placeholder="Digite seu e-mail" required>
+                        <span asp-validation-for="Email_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input asp-for="Celular_u" id="number" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                        <span asp-validation-for="Celular_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="emergency-number">Contato de emergência</label>
+                        <input asp-for="Ctt_emer_u" id="emergency-number" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                        <span asp-validation-for="Ctt_emer_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input asp-for="Senha_u" id="password" type="password" placeholder="Digite sua senha" required>
+                        <span asp-validation-for="Senha_u" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Confirmpassword">Confirme sua senha</label>
+                        <input id="Confirmpassword" type="password" name="Confirmpassword" placeholder="Confirme sua senha" required>
+                        <!--<span asp-validation-for="Confirmpassword" class="text-danger"></span>-->
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input asp-for="Genero_u" type="radio" id="female" name="Genero_u" value="Feminino">
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_u" type="radio" id="male" name="Genero_u" value="Masculino">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_u" type="radio" id="other" name="Genero_u" value="Outros">
+                            <label for="other">Outros</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_u" type="radio" id="not-say" name="Genero_u" value="Prefiro não falar">
+                            <label for="not-say">Prefiro não falar</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <button type="submit">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

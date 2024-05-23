@@ -1,49 +1,59 @@
 ﻿using PsiConnect.Context;
 using Microsoft.EntityFrameworkCore;
+using PsiConnect.Repositorios.Interfaces;
+using PsiConnect.Repositorios;
 
-namespace PsiConnect;
-public class Startup
+namespace PsiConnect
 {
-    public Startup(IConfiguration configuration)
+    public class Startup
     {
-        Configuration = configuration;
-    }
-    // linha de conexão com o banco SqlExpress: Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
-    public IConfiguration Configuration { get; }
-
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-        services.AddControllersWithViews();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
+        public Startup(IConfiguration configuration)
         {
-            app.UseDeveloperExceptionPage();
+            Configuration = configuration;
         }
-        else
+
+        public IConfiguration Configuration { get; }
+
+        // Este método é chamado pelo runtime. Use este método para adicionar serviços ao contêiner.
+        public void ConfigureServices(IServiceCollection services)
         {
-            app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IPsiConnectRepositorio, PsiConnectRepositorio>();
+
+            // Adiciona os serviços de autorização
+            services.AddAuthorization();
+
+            // Adiciona os serviços MVC (controladores com views)
+            services.AddControllersWithViews();
+
+            // Outros serviços podem ser adicionados aqui
         }
-        app.UseHttpsRedirection();
 
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseAuthorization();
-
-        app.UseEndpoints(endpoints =>
+        // Este método é chamado pelo runtime. Use este método para configurar o pipeline de requisições HTTP.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-        });
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
     }
 }
