@@ -44,7 +44,11 @@ header {
     padding: 28px 8%;
     position: sticky;
     top: 0;
+<<<<<<< HEAD
     background-color: #77B0AA;
+=======
+    background-color: #77B0AA; /*#f1fada*/
+>>>>>>> ab2f52cb23a4911fc3c968fa018524dccd8f3504
     z-index: 3;
 }
 
@@ -204,7 +208,11 @@ div.btn-conteiner {
         text-decoration: none;
         color: #1d1d1d;
     }
+<<<<<<< HEAD
 /*e terminam com*/
+=======
+    /*e terminam com*/
+>>>>>>> ab2f52cb23a4911fc3c968fa018524dccd8f3504
 #banner {
     display: flex;
     align-items: start;
