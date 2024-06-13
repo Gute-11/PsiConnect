@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Especialidades\Neuropsicologia.cshtml" />
+    <Content Remove="wwwroot\css\Index.cshtml" />
+    <Content Remove="wwwroot\css\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Especialidades\Neuropsicologia.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

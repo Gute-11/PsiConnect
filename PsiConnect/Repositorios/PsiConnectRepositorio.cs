@@ -17,5 +17,11 @@ namespace PsiConnect.Repositorios
             _appDbContext.SaveChanges();
             return usuario;
         }
+        public Psicologos CadastrarPsi(Psicologos psicologos)
+        {
+            _appDbContext.Psicologos.Add(psicologos);
+            _appDbContext.SaveChanges();
+            return psicologos;
+        }
     }
 }

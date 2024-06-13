@@ -31,5 +31,15 @@ namespace PsiConnect.Controllers
             _psiConnectRepositorio.Cadastrar(usuario);
             return RedirectToAction("Index");
         }
+        public IActionResult Tela_de_CadastroPsi()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Tela_de_CadastroPsi(Psicologos psicologos)
+        {
+            _psiConnectRepositorio.CadastrarPsi(psicologos);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 
 namespace PsiConnect.Models
 {
@@ -40,6 +41,16 @@ namespace PsiConnect.Models
         [Display(Name = "Sua Área de Atuação")]
         [StringLength(100, ErrorMessage = "A sua área de atuação excedeu 100 caracteres!")]
         public int Area_atuacao_p { get; set; }
+
+        [Required(ErrorMessage = "Informe seu CRM!")]
+        [Display(Name = "Seu CRM")]
+        [StringLength(10, ErrorMessage = "A seu CRM excedeu 10 caracteres!")]
+        public int CRM { get; set; }
+
+        [Required(ErrorMessage = "Informe sua Estado de Nascimento!")]
+        [Display(Name = "Seu Estado de nascimento")]
+        [StringLength(50, ErrorMessage = "A seu Estado excedeu 50 caracteres!")]
+        public int Estado { get; set; }
 
         [Required(ErrorMessage = "Informe sua Senha!")]
         [Display(Name = "Sua Senha")]
