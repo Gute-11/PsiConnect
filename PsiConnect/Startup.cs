@@ -34,14 +34,21 @@ namespace PsiConnect
                 options.Password.RequireNonAlphanumeric = false;
             });
 
-            // Adiciona os serviços de autorização
+            // Adicionar suporte a sessões
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            // Adicionar serviços de autorização
             services.AddAuthorization();
 
-            // Adiciona os serviços MVC (controladores com views)
+            // Adicionar serviços MVC (controladores com views)
             services.AddControllersWithViews();
-
-            // Outros serviços podem ser adicionados aqui
         }
+
+
 
         // Este método é chamado pelo runtime. Use este método para configurar o pipeline de requisições HTTP.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -55,12 +62,15 @@ namespace PsiConnect
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
@@ -69,5 +79,6 @@ namespace PsiConnect
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }
