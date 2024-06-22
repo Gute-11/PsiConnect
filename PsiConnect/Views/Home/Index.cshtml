@@ -79,7 +79,6 @@
                         <hr>
                     </ul>
                 </div>
-                </div>
 
                 <li class="nav_item" onclick="changeActive(this)">
                     <a href="#testimonials">Avaliações</a>
@@ -87,13 +86,14 @@
             </ul>
             <div class="btn-conteiner">
 
-                <a asp-controller="PsiConnect" asp-action="Tela_de_login" class="btn-link">
+                <a asp-controller="Account" asp-action="Login" class="btn-link">
                     <button class="btn-default">
                         Login
                     </button>
                 </a>
 
-                <a asp-controller="PsiConnect" asp-action="Tela_de_Cadastro" class="btn-link">
+                <!-- <a asp-controller="PsiConnect" asp-action="Tela_de_Cadastro" class="btn-link"> -->
+                <a asp-controller="Account" asp-action="Cadastro_Usuario" class="btn-link">
                     <button class="btn-default">
                         Cadastro
                     </button>
@@ -290,67 +290,67 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section id="testimonials">
+            <img src="~/imagens/Online Review.gif" id="testimonial_ava" alt="">
 
-            <section id="testimonials">
-                <img src="~/imagens/Online Review.gif" id="testimonial_ava" alt="">
+            <div id="testimonials_content">
+                <h2 class="section-title">
+                    Avaliações
+                </h2>
+                <h3 class="section-subtitle">
+                    O que os clientes falam sobre nós
+                </h3>
 
-                <div id="testimonials_content">
-                    <h2 class="section-title">
-                        Avaliações
-                    </h2>
-                    <h3 class="section-subtitle">
-                        O que os clientes falam sobre nós
-                    </h3>
+                <div id="feedbacks">
+                    <div class="feedback">
+                        <img src="~/imagens/IMG_20221207_212045.jpg" class="feedback-avatar" alt="">
 
-                    <div id="feedbacks">
-                        <div class="feedback">
-                            <img src="~/imagens/IMG_20221207_212045.jpg" class="feedback-avatar" alt="">
-
-                            <div class="feedback-content">
-                                <p>
-                                    <b>Jeanzinho</b>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                </p>
-                                <p>
-                                    "O Psyconnect me ajudou a entender melhor a mim mesmo
-                                    e encontrar recursos úteis para o meu bem-estar mental."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="feedback">
-                            <img src="~/imagens/1691438578258 (1).jpg" class="feedback-avatar" alt="">
-
-                            <div class="feedback-content">
-                                <p>
-                                    <b>Gutemberg Martins</b>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                </p>
-                                <p>
-                                    "Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                    Repellat voluptatibus cumque dolor ea est quae alias necessitatibus"
-                                </p>
-                            </div>
+                        <div class="feedback-content">
+                            <p>
+                                <b>Jeanzinho</b>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                "O Psyconnect me ajudou a entender melhor a mim mesmo
+                                e encontrar recursos úteis para o meu bem-estar mental."
+                            </p>
                         </div>
                     </div>
 
-                    <button class="btn-default">
-                        Ver mais avaliações
-                    </button>
+                    <div class="feedback">
+                        <img src="~/imagens/1691438578258 (1).jpg" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                <b>Gutemberg Martins</b>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                "Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                Repellat voluptatibus cumque dolor ea est quae alias necessitatibus"
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </section>
+
+                <button class="btn-default">
+                    Ver mais avaliações
+                </button>
+            </div>
+        </section>
     </main>
 
     <footer>

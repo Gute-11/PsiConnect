@@ -26,7 +26,7 @@ namespace PsiConnect.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Tela_de_Cadastro(Usuario usuario) 
+        public IActionResult Tela_de_Cadastro(Usuario usuario)
         {
             _psiConnectRepositorio.Cadastrar(usuario);
             return RedirectToAction("Index");

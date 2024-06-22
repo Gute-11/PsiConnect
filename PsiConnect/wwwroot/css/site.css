@@ -44,7 +44,7 @@ header {
     padding: 28px 8%;
     position: sticky;
     top: 0;
-    background-color: #77B0AA; /*#f1fada*/
+    background-color: #77B0AA;
     z-index: 3;
 }
 
@@ -204,11 +204,7 @@ div.btn-conteiner {
         text-decoration: none;
         color: #1d1d1d;
     }
-<<<<<<< HEAD
 /*e terminam com*/
-=======
-    /*e terminam com*/
->>>>>>> ab2f52cb23a4911fc3c968fa018524dccd8f3504
 #banner {
     display: flex;
     align-items: start;
@@ -295,7 +291,7 @@ div.btn-conteiner {
     flex-direction: column;
     align-items: center;
     border-radius: 28px;
-    width: 805;
+    width: 805%;
     gap: 18px;
     padding: 20px;
     background-color: #d7e7b2;
@@ -490,7 +486,7 @@ footer {
 
 #copyright {
     color: black;
-    font-weight: 500px;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 600px) {
@@ -509,21 +505,11 @@ footer {
     padding: 25px;
     border-top: 5px solid #77B0AA;
     z-index: 1;
-    ul li
-
-{
-    a
-
-{
-    color: rgba(29, 29, 29, 0.68);
-    text-decoration: none;
+    /*ul: li;*/
 }
 
 a:hover {
     color: #000;
-}
-
-}
 }
 
 .psycho:hover #especialidades_list {

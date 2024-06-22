@@ -1,0 +1,149 @@
+﻿@model PsiConnect.ViewModels.CadastroPsicologoViewModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Psicólogo</title>
+    <link rel="stylesheet" href="~/css/Tela_CadPsi.css" asp-append-version="true">
+</head>
+<body>
+    <div class="container">
+        <div class="form-img">
+            <img src="~/imagens/Login.gif" alt="Imagem animada">
+        </div>
+        <div class="form">
+            <form asp-controller="Account" asp-action="CadastroPsicologo" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @Html.AntiForgeryToken()
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se como Psicólogo</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a asp-controller="Account" asp-action="CadastroUsuario">Sou Paciente</a></button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label asp-for="Primeiro_nome_p">Primeiro nome</label>
+                        <input asp-for="Primeiro_nome_p" id="Primeiro_nome_p" type="text" placeholder="Digite seu primeiro nome" required>
+                        <span asp-validation-for="Primeiro_nome_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Sobrenome_p">Sobrenome</label>
+                        <input asp-for="Sobrenome_p" id="Sobrenome_p" type="text" placeholder="Digite seu sobrenome" required>
+                        <span asp-validation-for="Sobrenome_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Cpf_p">CPF</label>
+                        <input asp-for="Cpf_p" id="Cpf_p" type="text" placeholder="___.___.___-__" required>
+                        <span asp-validation-for="Cpf_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="CRM">CRM</label>
+                        <input asp-for="CRM" id="CRM" type="text" placeholder="__/______" required>
+                        <span asp-validation-for="CRM" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Estado">Estado</label>
+                        <select asp-for="Estado" id="Estado" name="Estado" class="form-control" required>
+                            <option value="">Selecione o estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Email_p">E-mail</label>
+                        <input asp-for="Email_p" id="Email_p" type="email" placeholder="Digite seu e-mail" required>
+                        <span asp-validation-for="Email_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Celular_p">Celular</label>
+                        <input asp-for="Celular_p" id="Celular_p" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                        <span asp-validation-for="Celular_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="Senha_p">Senha</label>
+                        <input asp-for="Senha_p" id="Senha_p" type="password" placeholder="Digite sua senha" required>
+                        <span asp-validation-for="Senha_p" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label asp-for="ConfirmeSenha">Confirme sua senha</label>
+                        <input asp-for="ConfirmeSenha" id="Confirmpassword" type="password" placeholder="Confirme sua senha" required>
+                        <span asp-validation-for="ConfirmeSenha" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input asp-for="Genero_p" type="radio" id="female" value="Feminino">
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_p" type="radio" id="male" value="Masculino">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_p" type="radio" id="other" value="Outros">
+                            <label for="other">Outros</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input asp-for="Genero_p" type="radio" id="prefiro-nao-falar" value="Prefiro não falar">
+                            <label for="prefiro-nao-falar">Prefiro não falar</label>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Genero_p" class="text-danger"></span>
+                </div>
+
+                <div class="continue-button">
+                    <button type="submit">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

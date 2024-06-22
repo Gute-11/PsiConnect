@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PsiConnect.Repositorios.Interfaces;
 using PsiConnect.Repositorios;
+using Microsoft.AspNetCore.Identity;
 
 namespace PsiConnect
 {
@@ -20,6 +21,18 @@ namespace PsiConnect
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPsiConnectRepositorio, PsiConnectRepositorio>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+            });
 
             // Adiciona os serviços de autorização
             services.AddAuthorization();
@@ -46,6 +59,7 @@ namespace PsiConnect
 
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,4 +1,4 @@
-﻿@model Usuario
+﻿@model PsiConnect.ViewModels.CadastroUsuarioViewModel
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,66 +14,68 @@
             <img src="~/imagens/Login.gif" alt="Imagem animada">
         </div>
         <div class="form">
-            <form asp-controller="PsiConnect" asp-action="Tela_de_Cadastro" method="post">
+            <form asp-controller="Account" asp-action="Cadastro_Usuario" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @Html.AntiForgeryToken()
                 <div class="form-header">
                     <div class="title">
                         <h1>Cadastre-se</h1>
                     </div>
                     <div class="login-button">
-                        <button><a asp-controller="PsiConnect" asp-action="Tela_de_CadastroPsi">Psicólogos</a></button>
+                        <button><a asp-controller="Account" asp-action="CadastroPsicologo">Psicólogos</a></button>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <div class="input-box">
-                        <label for="firstname">Primeiro nome</label>
-                        <input asp-for="Primeiro_nome_u" id="firstname" type="text" placeholder="Digite seu primeiro nome" required>
+                        <label asp-for="Primeiro_nome_u"></label>
+                        <input asp-for="Primeiro_nome_u" class="form-control" />
                         <span asp-validation-for="Primeiro_nome_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="lastname">Sobrenome</label>
-                        <input asp-for="Sobrenome_u" id="lastname" type="text" placeholder="Digite seu sobrenome" required>
+                        <label asp-for="Sobrenome_u"></label>
+                        <input asp-for="Sobrenome_u" class="form-control" />
                         <span asp-validation-for="Sobrenome_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="CPF">CPF</label>
-                        <input asp-for="Cpf_u" id="CPF" type="text" placeholder="___-___-___-__" required>
+                        <label asp-for="Cpf_u"></label>
+                        <input asp-for="Cpf_u" class="form-control" />
                         <span asp-validation-for="Cpf_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="email">E-mail</label>
-                        <input asp-for="Email_u" id="email" type="email" placeholder="Digite seu e-mail" required>
+                        <label asp-for="Email_u"></label>
+                        <input asp-for="Email_u" class="form-control" />
                         <span asp-validation-for="Email_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="number">Celular</label>
-                        <input asp-for="Celular_u" id="number" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                        <label asp-for="Celular_u"></label>
+                        <input asp-for="Celular_u" class="form-control" />
                         <span asp-validation-for="Celular_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="emergency-number">Contato de emergência</label>
-                        <input asp-for="Ctt_emer_u" id="emergency-number" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                        <label asp-for="Ctt_emer_u"></label>
+                        <input asp-for="Ctt_emer_u" class="form-control" />
                         <span asp-validation-for="Ctt_emer_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="password">Senha</label>
-                        <input asp-for="Senha_u" id="password" type="password" placeholder="Digite sua senha" required>
+                        <label asp-for="Senha_u"></label>
+                        <input asp-for="Senha_u" class="form-control" />
                         <span asp-validation-for="Senha_u" class="text-danger"></span>
                     </div>
 
                     <div class="input-box">
-                        <label for="Confirmpassword">Confirme sua senha</label>
-                        <input id="Confirmpassword" type="password" name="Confirmpassword" placeholder="Confirme sua senha" required>
-                        <!--<span asp-validation-for="Confirmpassword" class="text-danger"></span>-->
+                        <label asp-for="ConfirmeSenha"></label>
+                        <input asp-for="ConfirmeSenha" class="form-control" />
+                        <span asp-validation-for="ConfirmeSenha" class="text-danger"></span>
                     </div>
                 </div>
-
+                <!--tentando resolver problema do git-->
                 <div class="gender-inputs">
                     <div class="gender-title">
                         <h6>Gênero</h6>

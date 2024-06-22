@@ -11,6 +11,7 @@ namespace PsiConnect.Repositorios
         {
             _appDbContext = appDbContext;
         }
+
         public Usuario Cadastrar(Usuario usuario)
         {
             _appDbContext.Usuarios.Add(usuario);
