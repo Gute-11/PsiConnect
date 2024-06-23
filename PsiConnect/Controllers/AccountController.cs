@@ -34,7 +34,8 @@ namespace PsiConnect.Controllers
             if (!ModelState.IsValid)
                 return View(loginViewModel);
 
-            var user = await _userManager.FindByNameAsync(loginViewModel.Email_u);
+            //var user = await _userManager.FindByNameAsync(loginViewModel.Email_u);
+            var user = await _userManager.FindByEmailAsync(loginViewModel.Email_u);
 
             if (user != null)
             {
@@ -72,7 +73,7 @@ namespace PsiConnect.Controllers
                 return View(cadastroViewModel);
             }
 
-            var user = new IdentityUser { UserName = cadastroViewModel.Email_u, Email = cadastroViewModel.Email_u };
+            var user = new IdentityUser { UserName = cadastroViewModel.Primeiro_nome_u, Email = cadastroViewModel.Email_u };
             var result = await _userManager.CreateAsync(user, cadastroViewModel.Senha_u);
 
             if (result.Succeeded)
@@ -123,7 +124,7 @@ namespace PsiConnect.Controllers
                 return View(cadastroPsicologoViewModel);
             }
 
-            var user = new IdentityUser { UserName = cadastroPsicologoViewModel.Email_p, Email = cadastroPsicologoViewModel.Email_p };
+            var user = new IdentityUser { UserName = cadastroPsicologoViewModel.Primeiro_nome_p, Email = cadastroPsicologoViewModel.Email_p };
             var result = await _userManager.CreateAsync(user, cadastroPsicologoViewModel.Senha_p);
 
             if (result.Succeeded)

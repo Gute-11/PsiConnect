@@ -14,7 +14,8 @@
             <div class="form-value">
                 <form asp-controller="Account" asp-action="Login" method="post">
                     <h2>Login</h2>
-                    <!--<div asp-validation-summary="All" class="text-danger"></div>-->
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    @Html.AntiForgeryToken()
                     <input type="hidden" asp-for="ReturnUrl" />
 
                     <div class="inputbox">
