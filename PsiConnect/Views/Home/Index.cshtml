@@ -27,6 +27,12 @@
                 <li class="nav_item active" onclick="changeActive(this)">
                     <a href="#home">Início</a>
                 </li>
+                <li class="nav_item chat" onclick="changeActive(this)">
+                    <a asp-controller="PsiConnect" asp-action="Tela_de_Chat">Chat</a>
+                </li>
+                <li class="nav_item prontuario" onclick="changeActive(this)">
+                    <a asp-controller="PsiConnect" asp-action="Tela_de_Prontuario">Prontuario</a>
+                </li>
                 <li class="nav_item" onclick="changeActive(this)">
                     <a href="#menu">Psicólogos</a>
                 </li>
@@ -349,7 +355,7 @@
 
         <div id="footer_items">
             <span id="copyright">
-                &copy 2024 Rodrigo Abade
+                &copy 2024 PsiConnect
             </span>
         </div>
     </footer>
