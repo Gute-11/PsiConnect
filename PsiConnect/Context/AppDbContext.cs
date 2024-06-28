@@ -14,6 +14,9 @@ namespace PsiConnect.Context
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
         public DbSet<Psicologos> Psicologos { get; set; }
+
+        public DbSet<Prontuario> Prontuarios { get; set;}
     }
 }

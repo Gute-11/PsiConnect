@@ -56,5 +56,6 @@ namespace PsiConnect.Models
         [StringLength(15, ErrorMessage = "Excesso de caracteres!")]
         public string Genero_u { get; set; }
 
+        public bool psico { get; set; } = false;
     }
 }

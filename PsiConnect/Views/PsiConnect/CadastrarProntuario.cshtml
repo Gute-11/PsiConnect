@@ -1,0 +1,81 @@
+﻿@model PsiConnect.Models.Prontuario
+@{
+    ViewData["Title"] = "Criar Prontuário";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário de Psicólogo</title>
+    <link rel="stylesheet" href="~/css/Prontuario.css" asp-append-version="true">
+    <style>
+        .mensagem-sucesso {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prontuário do Psicólogo</h1>
+    </header>
+    <main>
+        <div class="div-pai">
+            
+            @if (TempData["MensagemSucesso"] != null)
+            {
+                <div class="mensagem-sucesso">
+                    @TempData["MensagemSucesso"]
+                </div>
+            }
+
+            <form asp-controller="PsiConnect" asp-action="CadastrarProntuario" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @Html.AntiForgeryToken()
+                <label asp-for="Nome_Paciente">Nome do Paciente:</label>
+                <br>
+                <input asp-for="Nome_Paciente" class="form-control" />
+                <span asp-validation-for="Nome_Paciente" class="text-danger"></span>
+                <br>
+                <label asp-for="Idade_Paciente">Idade:</label>
+                <br>
+                <input asp-for="Idade_Paciente" class="form-control" />
+                <span asp-validation-for="Idade_Paciente" class="text-danger"></span>
+                <br>
+                <label asp-for="Data_Consulta">Data da Consulta:</label>
+                <br>
+                <input asp-for="Data_Consulta" class="form-control" />
+                <span asp-validation-for="Data_Consulta" class="text-danger"></span>
+                <br>
+                <label asp-for="Diagnostico">Diagnóstico:</label>
+                <br>
+                <textarea asp-for="Diagnostico" class="form-control"></textarea>
+                <span asp-validation-for="Diagnostico" class="text-danger"></span>
+                <br>
+                <label asp-for="Tratamento">Tratamento:</label>
+                <br>
+                <textarea asp-for="Tratamento" class="form-control"></textarea>
+                <span asp-validation-for="Tratamento" class="text-danger"></span>
+                <br>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <img src="~/imagens/wave (4).svg" alt="">
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2024 PsiConnect
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

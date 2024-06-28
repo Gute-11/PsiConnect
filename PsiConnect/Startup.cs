@@ -41,17 +41,19 @@ namespace PsiConnect
                 options.Cookie.IsEssential = true;
             });
 
-            // Adicionar serviços de autorização
-            services.AddAuthorization();
+            // Adicionar políticas de autorização
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("PsicologoPolicy", policy => policy.RequireRole("Psicologo"));
+            });
 
             // Adicionar serviços MVC (controladores com views)
             services.AddControllersWithViews();
         }
 
 
-
         // Este método é chamado pelo runtime. Use este método para configurar o pipeline de requisições HTTP.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -70,6 +72,8 @@ namespace PsiConnect
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
+
             app.UseSession();
 
             app.UseEndpoints(endpoints =>
@@ -78,6 +82,24 @@ namespace PsiConnect
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            CreateRoles(serviceProvider).Wait();
+        }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            string[] roleNames = { "Psicologo", "Usuario" };
+            IdentityResult roleResult;
+
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await roleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
         }
 
     }

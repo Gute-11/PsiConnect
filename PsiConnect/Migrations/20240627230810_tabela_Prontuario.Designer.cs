@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PsiConnect.Context;
 
@@ -11,9 +12,11 @@ using PsiConnect.Context;
 namespace PsiConnect.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240627230810_tabela_Prontuario")]
+    partial class tabela_Prontuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,36 +221,6 @@ namespace PsiConnect.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("PsiConnect.Models.Prontuario", b =>
-                {
-                    b.Property<int>("ProntuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProntuarioId"));
-
-                    b.Property<DateTime>("Data_Consulta")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Diagnostico")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Idade_Paciente")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nome_Paciente")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Tratamento")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ProntuarioId");
-
-                    b.ToTable("Prontuario");
                 });
 
             modelBuilder.Entity("PsiConnect.Models.Psicologos", b =>

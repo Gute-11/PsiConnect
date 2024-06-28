@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PsiConnect.Models;
 using PsiConnect.Repositorios.Interfaces;
 
@@ -11,25 +12,17 @@ namespace PsiConnect.Controllers
         {
             _psiConnectRepositorio = psiConnectRepositorio;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult Tela_de_Cadastro()
         {
             return View();
         }
 
-        public IActionResult Tela_de_Editar()
-        {
-            return View();
-        }
         [HttpPost]
         public IActionResult Tela_de_Cadastro(Usuario usuario)
         {
             _psiConnectRepositorio.Cadastrar(usuario);
-            return RedirectToAction("Index");
+            return RedirectToAction("Tela_Inicial_Usuario");
         }
         public IActionResult Tela_de_CadastroPsi()
         {
@@ -39,7 +32,7 @@ namespace PsiConnect.Controllers
         public IActionResult Tela_de_CadastroPsi(Psicologos psicologos)
         {
             _psiConnectRepositorio.CadastrarPsi(psicologos);
-            return RedirectToAction("Index");
+            return RedirectToAction("Tela_Inicial_Psic");
         }
 
         public IActionResult Tela_de_Chat()
@@ -47,9 +40,46 @@ namespace PsiConnect.Controllers
             return View();
         }
 
-        public IActionResult Tela_de_Prontuario()
+        [Authorize(Policy = "PsicologoPolicy")]
+        public IActionResult CadastrarProntuario()
         {
             return View();
         }
+
+        [HttpPost]
+        [Authorize(Policy = "PsicologoPolicy")]
+        public IActionResult CadastrarProntuario(Prontuario prontuario)
+        {
+            if (ModelState.IsValid)
+            {
+                _psiConnectRepositorio.CadastrarProntuario(prontuario);
+                TempData["MensagemSucesso"] = "Prontuário cadastrado com sucesso!";
+                return RedirectToAction("CadastrarProntuario");
+            }
+            return View(prontuario);
+        }
+
+        [Authorize(Policy = "PsicologoPolicy")]
+        public IActionResult Tela_Inicial_Psic()
+        {
+            return View();
+        }
+
+        public IActionResult Tela_Inicial_Usuario()
+        {
+            return View();
+        }
+
+        [Authorize(Policy = "PsicologoPolicy")]
+        public IActionResult Tela_Perfil_Psic()
+        {
+            return View();
+        }
+
+        public IActionResult Tela_Perfil_Usua()
+        {
+            return View();
+        }
+
     }
 }

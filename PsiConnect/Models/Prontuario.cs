@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics;
 
 namespace PsiConnect.Models
 {
@@ -9,16 +9,24 @@ namespace PsiConnect.Models
     {
         [Key]
         public int ProntuarioId { get; set; }
-        
+
+        [Required(ErrorMessage = "O nome do paciente é obrigatório.")]
+        [Display(Name = "Nome do Paciente")]
+        [StringLength(100, ErrorMessage = "O nome do paciente deve ter no máximo 100 caracteres.")]
         public string Nome_Paciente { get; set; }
 
-        public string Idade_Paciente { get; set; }
+        [Display(Name = "Idade do Paciente")]
+        public int? Idade_Paciente { get; set; }
 
-        public string Data_Consulta { get; set; }
+        [Required(ErrorMessage = "A data da consulta é obrigatória.")]
+        [Display(Name = "Data da Consulta")]
+        [DataType(DataType.Date)]
+        public DateTime Data_Consulta { get; set; }
 
+        [Display(Name = "Diagnóstico")]
         public string Diagnostico { get; set; }
 
+        [Display(Name = "Tratamento")]
         public string Tratamento { get; set; }
-
     }
 }
