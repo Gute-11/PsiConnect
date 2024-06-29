@@ -12,7 +12,7 @@
     <script src="" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Tela Principal</title>
+    <title>Psiconnect</title>
 </head>
 <body>
     <div id="bg-dark"></div>
@@ -30,9 +30,6 @@
                 <li class="nav_item chat" onclick="changeActive(this)">
                     <a asp-controller="PsiConnect" asp-action="Tela_de_Chat">Chat</a>
                 </li>
-                <!--<li class="nav_item prontuario" onclick="changeActive(this)">
-                    <a asp-controller="PsiConnect" asp-action="Tela_de_Prontuario">Prontuario</a>
-                </li>-->
                 <li class="nav_item" onclick="changeActive(this)">
                     <a href="#menu">Psicólogos</a>
                 </li>
@@ -95,8 +92,9 @@
                     <a href="#testimonials">Avaliações</a>
                 </li>
             </ul>
-            
+
             @await Html.PartialAsync("_loginPartial")
+
             <button id="mobile_btn">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -134,11 +132,6 @@
                     profissional e soluções personalizadas para o seu bem-estar emocional."
                 </p>
 
-                <div id="cta_buttons">
-                    <a href="#" class="btn-default">
-                        Ver mais...
-                    </a>
-                </div>
             </div>
 
             <div id="banner">
@@ -148,293 +141,300 @@
         </section>
 
         <section id="menu">
-            <h2 class="section-title" >Psicólogos</h2>
-        <div class="div-father">
+            <h2 class="section-title">Psicólogos</h2>
+            <div class="div-father">
 
-            <div id="modal" class="psycho"></div>
+                <div id="modal" class="psycho"></div>
 
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Gutemberg.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Gutemberg França
+                        </h3>
+                        <span class="psycho-description">
+                            Especializado em ansiedade e depressão, <br>
+                            Dr. Gutemberg França combina técnicas cognitivo-comportamentais <br> e abordagens
+                            humanistas para criar um ambiente acolhedor e terapêutico.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(180+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$200,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
                     </div>
-
-                        <img src="~/imagens/1691438578258 (1).jpg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Gutemberg França
-                    </h3>
-                    <span class="psycho-description">Especializado em ansiedade e depressão, <br>
-                        Dr. Gutemberg França combina técnicas cognitivo-comportamentais <br> e abordagens 
-                        humanistas para criar um ambiente acolhedor e terapêutico.
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(180+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$200,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
                 </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Caio.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Caio Viterbo
+                        </h3>
+                        <span class="psycho-description">
+                            Especialista em terapia familiar e de casal,
+                            Dr. Caio Viterbo utiliza uma abordagem colaborativa <br> e orientada para soluções,
+                            focada em fortalecer relacionamentos.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$100,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Jeana.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Jeane Santos
+                        </h3>
+                        <span class="psycho-description">
+                            Com formação em EMDR,
+                            Dr. Jeane Santos é  especializada no tratamento <br> de traumas e TEPT,
+                            oferecendo uma abordagem empática e eficaz para a cura emocional.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$150,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Jwan.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Jean Santos
+                        </h3>
+                        <span class="psycho-description">
+                            Oferecendo apoio empático e orientação
+                            profissional para <br>ajudá-lo a enfrentar desafios e alcançar uma vida
+                            mais equilibrada
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$150,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="div-father">
+
+                <div id="modal" class="psycho"></div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Rodrigo.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Rodrigo Abade
+                        </h3>
+                        <span class="psycho-description">
+                            Especializado em ansiedade e depressão, <br>
+                            Dr. Rodrigo Abade combina técnicas cognitivo-comportamentais <br> e abordagens
+                            humanistas para criar um ambiente acolhedor e terapêutico.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(180+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$200,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Deivison.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Deivison Oliveira
+                        </h3>
+                        <span class="psycho-description">
+                            Especialista em terapia familiar e de casal,
+                            Dr. Deivison Oliveira utiliza uma abordagem colaborativa <br> e orientada para soluções,
+                            focada em fortalecer relacionamentos.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$100,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/Luana.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Luana Rocha
+                        </h3>
+                        <span class="psycho-description">
+                            Com formação em EMDR,
+                            Dra. Luana Rocha é  especializada no tratamento <br> de traumas e TEPT,
+                            oferecendo uma abordagem empática e eficaz para a cura emocional.
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$150,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="psychologist">
+                    <div class="psycho card">
+                        <div class="psycho-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <img src="~/imagens/David.png" class="psycho-image" alt="berg">
+                        <h3 class="psycho-title">
+                            Daivd Araujo
+                        </h3>
+                        <span class="psycho-description">
+                            Oferecendo apoio empático e orientação
+                            profissional para <br>ajudá-lo a enfrentar desafios e alcançar uma vida
+                            mais equilibrada
+                        </span>
+
+                        <div class="psycho-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(65+)</span>
+                        </div>
+
+                        <div class="psycho-price">
+                            <h4>R$150,00</h4>
+                            <button class="btn-default">
+                                Ver mais...
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
+            <section id="testimonials">
+                <img src="~/imagens/Online Review.gif" id="testimonial_ava" alt="">
 
-                        <img src="~/imagens/caio3.jpeg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Caio Viterbo
+                <div id="testimonials_content">
+                    <h2 class="section-title">
+                        Avaliações
+                    </h2>
+                    <h3 class="section-subtitle">
+                        O que os clientes falam sobre nós
                     </h3>
-                    <span class="psycho-description">Especialista em terapia familiar e de casal, 
-                        Dr. Caio Viterbo utiliza uma abordagem colaborativa <br> e orientada para soluções, 
-                        focada em fortalecer relacionamentos.
-                    </span>
 
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$100,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                    <img src="~/imagens/fvls.png" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Falvio Gustavo
-                    </h3>
-                    <span class="psycho-description">Com formação em EMDR, 
-                        Dr. Flavio Gustavo Costa é  especializado no tratamento <br> de traumas e TEPT, 
-                        oferecendo uma abordagem empática e eficaz para a cura emocional.
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$150,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                        <img src="~/imagens/IMG_20221207_212045.jpg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Jean Santos
-                    </h3>
-                    <span class="psycho-description">Oferecendo apoio empático e orientação
-                        profissional para <br>ajudá-lo a enfrentar desafios e alcançar uma vida 
-                        mais equilibrada
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$150,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-            
-        </div>    
-        <div class="div-father">
-
-            <div id="modal" class="psycho"></div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                        <img src="~/imagens/1691438578258 (1).jpg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Gutemberg França
-                    </h3>
-                    <span class="psycho-description">Especializado em ansiedade e depressão, <br>
-                        Dr. Gutemberg França combina técnicas cognitivo-comportamentais <br> e abordagens 
-                        humanistas para criar um ambiente acolhedor e terapêutico.
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(180+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$200,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                    <img src="~/imagens/caio3.jpeg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Caio Viterbo
-                    </h3>
-                    <span class="psycho-description">Especialista em terapia familiar e de casal, 
-                        Dr. Caio Viterbo utiliza uma abordagem colaborativa <br> e orientada para soluções, 
-                        focada em fortalecer relacionamentos.
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$100,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                        <img src="~/imagens/fvls.png" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Falvio Gustavo
-                    </h3>
-                    <span class="psycho-description">Com formação em EMDR, 
-                        Dr. Flavio Gustavo Costa é  especializado no tratamento <br> de traumas e TEPT, 
-                        oferecendo uma abordagem empática e eficaz para a cura emocional.
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$150,00</h4>
-                        <button class="btn-default">
-                            Ver mais...
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-
-            <div id="psychologist">
-                <div class="psycho card">
-                    <div class="psycho-brain">
-                        <i class="fa-solid fa-brain" ></i>
-                    </div>
-
-                        <img src="~/imagens/IMG_20221207_212045.jpg" class="psycho-image" alt="berg">
-                    <h3 class="psycho-title">
-                        Jean Santos
-                    </h3>
-                    <span class="psycho-description">Oferecendo apoio empático e orientação
-                        profissional para <br>ajudá-lo a enfrentar desafios e alcançar uma vida 
-                        mais equilibrada
-                    </span>
-
-                    <div class="psycho-rate">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(65+)</span>
-                    </div>
-
-                    <div class="psycho-price">
-                        <h4>R$150,00</h4>
-                        <button class="btn-default">
-                            Ver mais... 
-                        </button>   
-                    </div>
-        
-                </div>
-            </div>
-            
-        </div>   
-           
-        <section id="testimonials">
-       
-            <img src="~/imagens/Online Review.gif" id="testimonial_ava" alt="">
-
-            <div id="testimonials_content">
-                <h2 class="section-title">
-                    Avaliações
-                </h2>
-                <h3 class="section-subtitle">
-                    O que os clientes falam sobre nós
-                </h3>
-
-                <div id="feedbacks">
-                    <div class="feedback">
-                        <img src="~/imagens/IMG_20221207_212045.jpg" class="feedback-avatar" alt="">
+                    <div id="feedbacks">
+                        <div class="feedback">
+                            <img src="~/imagens/Jwan.png" class="feedback-avatar" alt="">
 
                             <div class="feedback-content">
                                 <p>
@@ -456,8 +456,8 @@
                             </div>
                         </div>
 
-                    <div class="feedback">
-                        <img src="~/imagens/1691438578258 (1).jpg" class="feedback-avatar" alt="">
+                        <div class="feedback">
+                            <img src="~/imagens/Gutemberg.png" class="feedback-avatar" alt="">
 
                             <div class="feedback-content">
                                 <p>
@@ -479,11 +479,11 @@
                         </div>
                     </div>
 
-                <button class="btn-default">
-                    Ver mais avaliações
-                </button>
-            </div>
-        </section>
+                    <button class="btn-default">
+                        Ver mais avaliações
+                    </button>
+                </div>
+            </section>
     </main>
 
     <footer>

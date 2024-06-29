@@ -9,5 +9,7 @@ namespace PsiConnect.Repositorios.Interfaces
         Psicologos CadastrarPsi(Psicologos psicologos);
 
         Prontuario CadastrarProntuario(Prontuario prontuario);
+
+        List<Psicologos> BuscarNomePsic();
     }
 }

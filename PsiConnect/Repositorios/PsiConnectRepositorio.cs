@@ -1,4 +1,5 @@
-﻿using PsiConnect.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PsiConnect.Context;
 using PsiConnect.Models;
 using PsiConnect.Repositorios.Interfaces;
 
@@ -10,6 +11,11 @@ namespace PsiConnect.Repositorios
         public PsiConnectRepositorio(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
+        }
+
+        public List<Psicologos> BuscarNomePsic()
+        {
+            return _appDbContext.Psicologos.ToList();
         }
 
         public Usuario Cadastrar(Usuario usuario)
@@ -33,6 +39,7 @@ namespace PsiConnect.Repositorios
             return psicologos;
         }
 
+       
 
     }
 }

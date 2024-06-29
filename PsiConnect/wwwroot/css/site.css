@@ -40,7 +40,7 @@ header {
 }
 
 #nav_logo {
-    font-size: 14px;
+    font-size: 20px;
     color: #265073;
 }
 
@@ -109,16 +109,18 @@ div.btn-conteiner {
     transition: background-color .3s ease;
     color: #000;
     text-decoration: none;
+    width: auto;
+    height: auto;
 }
 
 .navbar-nav li {
     list-style-type: none;
 }
 
-    .btn-default:hover {
-        background-color: rgb(120, 168, 209);
-        color: #fff;
-    }
+.btn-default:hover {
+    background-color: rgb(120, 168, 209);
+    color: #fff;
+}
 
 #mobile_btn {
     display: none;
@@ -539,4 +541,8 @@ a:hover {
 #especialidades_list li {
     list-style: none;
     color: white;
+}
+
+.chat-btn {
+    text-decoration: none;
 }

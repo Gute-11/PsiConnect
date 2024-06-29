@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +18,7 @@
                 <button id="change-picture-btn">Mudar Foto</button>
                 <button id="edit-picture-btn">Alterar Foto de Perfil</button>
             </div>
-            <h1>Nome do Usário</h1>
+            <h1> @User.Identity.Name &nbsp; </h1>
         </div>
     </header>
 

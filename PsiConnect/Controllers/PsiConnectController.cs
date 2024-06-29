@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PsiConnect.Models;
 using PsiConnect.Repositorios.Interfaces;
+using PsiConnect.ViewModels;
 
 namespace PsiConnect.Controllers
 {
@@ -73,6 +74,7 @@ namespace PsiConnect.Controllers
         [Authorize(Policy = "PsicologoPolicy")]
         public IActionResult Tela_Perfil_Psic()
         {
+            //List<CadastroPsicologoViewModel> _psiConnectRepositorio.BuscarNomePsic();
             return View();
         }
 
